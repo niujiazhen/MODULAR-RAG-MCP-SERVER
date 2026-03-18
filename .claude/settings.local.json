@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/interview-prep/references)",
+      "Bash(mkdir -p /Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/package/scripts)",
+      "Bash(mkdir -p /Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/project-learner/references)",
+      "Bash(mkdir -p /Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/project-review/references)",
+      "Bash(mkdir -p /Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/setup/references)",
+      "Bash(cp .github/skills/interview-prep/references/project_knowledge.md .claude/skills/interview-prep/references/project_knowledge.md)",
+      "Bash(cp .github/skills/interview-prep/references/question_bank.md .claude/skills/interview-prep/references/question_bank.md)",
+      "Bash(cp .github/skills/interview-prep/references/report_template.md .claude/skills/interview-prep/references/report_template.md)",
+      "Bash(cp .github/skills/project-learner/references/LEARNING_PROGRESS.md .claude/skills/project-learner/references/LEARNING_PROGRESS.md)",
+      "Bash(cp .github/skills/project-review/references/question_bank.md .claude/skills/project-review/references/question_bank.md)",
+      "Bash(for d:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/**)"
+    ]
+  }
+}
