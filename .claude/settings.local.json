@@ -13,7 +13,17 @@
       "Bash(cp .github/skills/project-review/references/question_bank.md .claude/skills/project-review/references/question_bank.md)",
       "Bash(for d:*)",
       "Bash(do echo:*)",
-      "Read(//Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/**)"
+      "Read(//Users/niujiazhen/Desktop/MODULAR-RAG-MCP-SERVER-1/.claude/skills/**)",
+      "Bash(ls -td ~/.claude/plugins/cache/claude-code-statusline-alansauce/claude-code-statusline-alansauce/*/)",
+      "Bash(command -v jq)",
+      "Bash(command -v bash)",
+      "Bash(command -v curl)",
+      "Bash(curl:*)",
+      "Bash(mkdir -p ~/.local/bin)",
+      "Bash(mv ~/jq.exe ~/.local/bin/jq.exe)",
+      "Bash(~/.bashrc)",
+      "Bash(export PATH=\"$HOME/.local/bin:$PATH\")",
+      "Bash(jq --version)"
     ]
   }
 }
