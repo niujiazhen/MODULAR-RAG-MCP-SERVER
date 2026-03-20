@@ -1,6 +1,6 @@
 ---
 name: project-learner
-description: "Interactive project learning coach via interview-style Q&A. Reads codebase and docs, dynamically generates interview questions per knowledge domain and sub-topic, conducts up to 4 follow-up rounds, scores answers, provides learning guidance with code/doc references, and persists progress. 10 domains × 3-5 sub-topics = 45 knowledge points for comprehensive interview coverage. Use when user says '学习项目', '了解项目', '检验项目', '项目学习', '面试准备', 'learn project', 'study project', 'review project', 'interview prep', 'knowledge check', or wants to understand/master the project through guided Q&A."
+description: "Interactive project learning coach via interview-style Q&A. Reads codebase and docs, dynamically generates interview questions per knowledge domain and sub-topic, conducts up to 3 follow-up rounds, scores answers, provides learning guidance with code/doc references, and persists progress. 10 domains × 3-5 sub-topics = 45 knowledge points for comprehensive interview coverage. Use when user says '学习项目', '了解项目', '检验项目', '项目学习', '面试准备', 'learn project', 'study project', 'review project', 'interview prep', 'knowledge check', or wants to understand/master the project through guided Q&A."
 ---
 
 # Project Learner
@@ -14,7 +14,7 @@ All user-facing interaction in **中文**. Internal instructions in English.
 ```
 Discovery → Check History → User Intent → Select Domain → Select Sub-topic
 → Generate Question → Interactive Q&A (≤4 follow-ups) → Evaluate
-→ Learning Guide → Persist Progress → Continue or End
+→ Learning Guide → Save Transcript → Persist Progress → Continue or End
 ```
 
 ---
@@ -151,7 +151,7 @@ Based on the selected **sub-topic** (not just domain):
 
 1. **Deep-read** the sub-topic's specific source code — read actual class definitions, key functions, config sections listed in the Sub-topic Map
 2. **Dynamically generate** ONE main interview question (中文) grounded in this sub-topic's real code
-3. **Internally prepare** up to 4 progressive follow-up questions (do NOT show these yet)
+3. **Internally prepare** up to 3 progressive follow-up questions (do NOT show these yet)
 4. **Avoid repeating** questions from previous sessions — check Detailed History for this sub-topic and generate a different angle
 
 ### Question Design Principles
@@ -162,7 +162,6 @@ Based on the selected **sub-topic** (not just domain):
   - Follow-up 1: "为什么这样设计？" (design rationale)
   - Follow-up 2: "和替代方案对比有什么优劣？" (trade-offs)
   - Follow-up 3: "边界条件/异常情况怎么处理？" (edge cases)
-  - Follow-up 4: "如果让你重新设计，会怎么做？" (redesign thinking)
 - Adjust follow-ups dynamically based on what the user actually answers
 
 ### Question Angle Variety
@@ -191,11 +190,11 @@ Present to user:
 
 ---
 
-## Phase 5: Interactive Q&A (≤4 Follow-up Rounds)
+## Phase 5: Interactive Q&A (≤3 Follow-up Rounds)
 
 ```
 Round 0: Main question → User answers
-Round 1-4: Brief feedback on previous answer + follow-up question → User answers
+Round 1-3: Brief feedback on previous answer + follow-up question → User answers
 Early exit: User says "结束"/"pass"/"跳过" OR answer is sufficiently comprehensive
 ```
 
@@ -228,7 +227,7 @@ After Q&A ends, output a structured evaluation report (中文):
 ## 📊 评价报告
 
 **知识域**: [Domain] > **知识点**: [Sub-topic ID & Name] — [Question summary]
-**追问轮数**: N/4
+**追问轮数**: N/3
 
 ### ✅ 回答亮点
 - [Strength 1 — specific to what they said]
@@ -293,7 +292,99 @@ Guidelines:
 
 ---
 
-## Phase 8: Persist Progress
+## Phase 8: Save Learning Transcript
+
+After evaluation and learning guide, save the **complete Q&A conversation transcript** to `Project-Learning/` for the user's future review.
+
+### File Path Convention
+
+```
+Project-Learning/{Domain Name}/{Domain Name}- {SubtopicID} {SubtopicName}.md
+```
+
+**Examples**:
+- `Project-Learning/Ingestion Pipeline/Ingestion Pipeline- D2.1 Pipeline整体流程.md`
+- `Project-Learning/Hybrid Search & Retrieval/Hybrid Search & Retrieval- D3.3 Hybrid Search融合.md`
+- `Project-Learning/RAG Pipeline 整体架构/RAG Pipeline 整体架构- D1.2 三层架构设计.md`
+
+### Domain Name Mapping
+
+| Domain ID | Directory Name |
+|-----------|---------------|
+| D1 | RAG Pipeline 整体架构 |
+| D2 | Ingestion Pipeline |
+| D3 | Hybrid Search & Retrieval |
+| D4 | Rerank 机制 |
+| D5 | MCP Server 协议 |
+| D6 | 可插拔架构 & 配置系统 |
+| D7 | 多模态处理 |
+| D8 | 可观测性 & 评估体系 |
+| D9 | 测试策略 & 工程化 |
+| D10 | Document Manager & 幂等性 |
+
+### File Content
+
+Save a **condensed study note** (not verbatim transcript). For each question, synthesize the user's answer with all corrections/supplements into one concise standard answer. Structure:
+
+```markdown
+# {Domain Name} - {SubtopicID} {SubtopicName}
+
+> 学习日期: {YYYY-MM-DD}
+> 综合评分: {X}/10 | 追问轮数: {N}/3
+
+---
+
+**Q1: {Main question text — original wording}**
+
+**标准答案**: {Synthesized answer: merge user's correct points + all corrections/supplements from feedback into one complete, concise answer. This should read as a self-contained reference answer.}
+
+---
+
+**Q2: {Follow-up question 1 — original wording}**
+
+**标准答案**: {Same synthesis approach}
+
+---
+
+**Q3: {Follow-up question 2 — original wording}**
+
+**标准答案**: {Same synthesis approach}
+
+---
+
+**QN: {Follow-up question N — original wording}**
+
+**标准答案**: {Same synthesis approach}
+
+---
+
+## 📊 评价报告
+
+{Complete evaluation report as generated in Phase 6}
+
+---
+
+## 📚 学习指南
+
+{Complete learning guide as generated in Phase 7}
+```
+
+### Synthesis Rules for 标准答案
+
+1. **Merge, don't list separately**: Combine the user's correct points with all ⚠️ corrections and 💡 supplements into ONE cohesive answer
+2. **Concise but complete**: The 标准答案 should be a ready-to-review reference — reading it alone should give full understanding of the answer
+3. **Include code references**: If feedback mentioned specific file paths, line numbers, or class names, include them in the 标准答案
+4. **Fix inaccuracies silently**: Do not mark what was wrong vs right — just write the correct, complete answer
+
+### General Rules
+
+1. Include the full evaluation report and learning guide unchanged
+2. If a sub-topic is studied again (revisited), **append** a new session section at the bottom of the existing file with a `---` separator and session number header (e.g., `# 第 2 次学习 — {date}`)
+3. Create the domain subdirectory if it doesn't exist
+
+---
+
+## Phase 9: Persist Progress
 
 Update `.claude/skills/project-learner/references/LEARNING_PROGRESS.md`.
 
@@ -318,7 +409,7 @@ If file doesn't exist, create it from the template in [references/LEARNING_PROGR
 
 ---
 
-## Phase 9: Continue or End
+## Phase 10: Continue or End
 
 After persisting, ask the user (中文):
 
@@ -350,6 +441,7 @@ After persisting, ask the user (中文):
 | File | Purpose |
 |------|---------|
 | `.claude/skills/project-learner/references/LEARNING_PROGRESS.md` | Persistent learning state (45 sub-topics) |
+| `Project-Learning/{Domain Name}/` | Learning session transcripts organized by domain |
 | `DEV_SPEC.md` | Project specification & architecture |
 | `config/settings.yaml` | Configuration reference |
 | `src/` | All source code modules |
