@@ -1,6 +1,6 @@
 ---
 name: project-learner
-description: "Interactive project learning coach via interview-style Q&A. Reads codebase and docs, dynamically generates interview questions per knowledge domain and sub-topic, conducts up to 3 follow-up rounds, scores answers, provides learning guidance with code/doc references, and persists progress. 10 domains × 3-5 sub-topics = 45 knowledge points for comprehensive interview coverage. Use when user says '学习项目', '了解项目', '检验项目', '项目学习', '面试准备', 'learn project', 'study project', 'review project', 'interview prep', 'knowledge check', or wants to understand/master the project through guided Q&A."
+description: "Interactive project learning coach via interview-style Q&A. Reads codebase and docs, dynamically generates interview questions per knowledge domain and sub-topic, conducts up to 1 follow-up round, scores answers, provides learning guidance with code/doc references, and persists progress. 10 domains × 3-5 sub-topics = 45 knowledge points for comprehensive interview coverage. Use when user says '学习项目', '了解项目', '检验项目', '项目学习', '面试准备', 'learn project', 'study project', 'review project', 'interview prep', 'knowledge check', or wants to understand/master the project through guided Q&A."
 ---
 
 # Project Learner
@@ -13,7 +13,7 @@ All user-facing interaction in **中文**. Internal instructions in English.
 
 ```
 Discovery → Check History → User Intent → Select Domain → Select Sub-topic
-→ Generate Question → Interactive Q&A (≤4 follow-ups) → Evaluate
+→ Generate Question → Interactive Q&A (≤1 follow-up) → Evaluate
 → Learning Guide → Save Transcript → Persist Progress → Continue or End
 ```
 
@@ -151,7 +151,7 @@ Based on the selected **sub-topic** (not just domain):
 
 1. **Deep-read** the sub-topic's specific source code — read actual class definitions, key functions, config sections listed in the Sub-topic Map
 2. **Dynamically generate** ONE main interview question (中文) grounded in this sub-topic's real code
-3. **Internally prepare** up to 3 progressive follow-up questions (do NOT show these yet)
+3. **Internally prepare** 1 follow-up question (do NOT show it yet)
 4. **Avoid repeating** questions from previous sessions — check Detailed History for this sub-topic and generate a different angle
 
 ### Question Design Principles
@@ -159,9 +159,7 @@ Based on the selected **sub-topic** (not just domain):
 - Questions MUST reference real code/architecture from THIS project, never generic
 - Questions should be specific to the sub-topic, not the whole domain
 - Difficulty progression for follow-ups:
-  - Follow-up 1: "为什么这样设计？" (design rationale)
-  - Follow-up 2: "和替代方案对比有什么优劣？" (trade-offs)
-  - Follow-up 3: "边界条件/异常情况怎么处理？" (edge cases)
+  - Follow-up 1: "为什么这样设计？" or "和替代方案对比有什么优劣？" or "边界条件/异常情况怎么处理？" (pick the most relevant angle based on user's answer)
 - Adjust follow-ups dynamically based on what the user actually answers
 
 ### Question Angle Variety
@@ -190,11 +188,11 @@ Present to user:
 
 ---
 
-## Phase 5: Interactive Q&A (≤3 Follow-up Rounds)
+## Phase 5: Interactive Q&A (≤1 Follow-up Round)
 
 ```
 Round 0: Main question → User answers
-Round 1-3: Brief feedback on previous answer + follow-up question → User answers
+Round 1: Brief feedback on previous answer + follow-up question → User answers
 Early exit: User says "结束"/"pass"/"跳过" OR answer is sufficiently comprehensive
 ```
 
@@ -227,7 +225,7 @@ After Q&A ends, output a structured evaluation report (中文):
 ## 📊 评价报告
 
 **知识域**: [Domain] > **知识点**: [Sub-topic ID & Name] — [Question summary]
-**追问轮数**: N/3
+**追问轮数**: N/1
 
 ### ✅ 回答亮点
 - [Strength 1 — specific to what they said]
