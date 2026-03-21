@@ -1,14 +1,14 @@
 # 📚 Project Learning Progress
 
 > Last updated: 2026-03-20
-> 总进度: 0/45 知识点已掌握
+> 总进度: 1/45 知识点已掌握 (5/45 已学习)
 
 ## Domain Summary
 
 | 知识域 | 子知识点 | 已掌握 | 已学习 | 平均分 | 状态 |
 |--------|----------|--------|--------|--------|------|
 | D1 RAG Pipeline 整体架构 | 5 | 0/5 | 1/5 | 1.0 | 🔴 薄弱 |
-| D2 Ingestion Pipeline | 5 | 0/5 | 2/5 | 7.3 | 🔶 学习中 |
+| D2 Ingestion Pipeline | 5 | 0/5 | 4/5 | 7.5 | 🔶 学习中 |
 | D3 Hybrid Search & Retrieval | 5 | 0/5 | 0/5 | - | ⬜ 未学习 |
 | D4 Rerank 机制 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
 | D5 MCP Server 协议 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
@@ -36,8 +36,8 @@
 |----|--------|------|--------|--------|------|
 | D2.1 | Pipeline 整体流程 | 1 | 7 | 7 | 🔶 学习中 |
 | D2.2 | Chunking 策略 | 1 | 7.5 | 7.5 | 🔶 学习中 |
-| D2.3 | Transform 链 | 0 | - | - | ⬜ 未学习 |
-| D2.4 | Embedding 编码 | 0 | - | - | ⬜ 未学习 |
+| D2.3 | Transform 链 | 1 | 7.5 | 7.5 | 🔶 学习中 |
+| D2.4 | Embedding 编码 | 1 | 8 | 8 | ✅ 掌握 |
 | D2.5 | 存储层协同 | 0 | - | - | ⬜ 未学习 |
 
 ### D3 Hybrid Search & Retrieval
@@ -122,3 +122,5 @@
 | 1 | 2026-03-18 | D1.1 | 端到端数据流 | 从文档上传到生成回答的完整链路描述 | 1 | 0 | 摄取链路6阶段、查询链路组件串联、MCP Server角色 |
 | 2 | 2026-03-19 | D2.1 | Pipeline 整体流程 | Ingestion Pipeline 6阶段流程与设计原则 | 7 | 3 | 外部API调用范围认知、mark_failed统一处理机制、回答中引用具体代码位置 |
 | 3 | 2026-03-20 | D2.2 | Chunking 策略 | RecursiveSplitter分割逻辑与DocumentChunker业务增强 | 7.5 | 2 | DEFAULT_SEPARATORS层级展开、chunk_overlap具体场景举例、扩展时DocumentChunker无需修改的设计优势 |
+| 4 | 2026-03-20 | D2.3 | Transform 链 | Transform链职责、执行顺序、设计原则与并行处理 | 7.5 | 3 | ChunkRefiner的rule-based与RecursiveSplitter混淆、Atomic Operations原则遗漏、Pipeline层trace具体内容未展开、as_completed保序机制未主动提及 |
+| 5 | 2026-03-20 | D2.4 | Embedding 编码 | Dense/Sparse双编码与BatchProcessor批处理 | 8 | 3 | DenseEncoder两层校验的具体防范场景、BatchResult数据类结构、SparseEncoder的get_corpus_stats方法 |
