@@ -23,7 +23,8 @@
       "Bash(mv ~/jq.exe ~/.local/bin/jq.exe)",
       "Bash(~/.bashrc)",
       "Bash(export PATH=\"$HOME/.local/bin:$PATH\")",
-      "Bash(jq --version)"
+      "Bash(jq --version)",
+      "Edit(/.claude/skills/project-learner/**)"
     ]
   }
 }
