@@ -129,3 +129,4 @@
 | 8 | 2026-03-22 | D3.2 | Sparse Retrieval | SparseRetriever四步流程与BM25评分机制 | 7.5 | 1 | _ensure_index_loaded每次重新加载的freshness设计、get_by_ids与query的区别、IDF负值含义、项目默认k1/b参数值 |
 | 9 | 2026-03-22 | D3.3 | Hybrid Search 融合 | RRF算法与Graceful Degradation机制 | 8.5 | 1 | RRF公式泛化形式、score-agnostic分布差异深层含义、HybridSearchResult调试对象、_interleave_results兜底 |
 | 10 | 2026-03-22 | D3.4 | QueryProcessor | 查询预处理与过滤语法传递机制 | 8.5 | 1 | 分词不一致具体后果举例、post-fusion过滤补偿机制、双语停用词合并设计 |
+| 11 | 2026-03-22 | D3.5 | Response 构建 | 三组件协作与多模态输出 | 9 | 1 | MCPToolResponse双输出方法、resolve_image_path三级路径解析、MIME类型双检测、error resilience设计 |
