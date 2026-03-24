@@ -1,7 +1,7 @@
 # 📚 Project Learning Progress
 
-> Last updated: 2026-03-23
-> 总进度: 12/45 知识点已掌握 (15/45 已学习)
+> Last updated: 2026-03-24
+> 总进度: 16/45 知识点已掌握 (19/45 已学习)
 
 ## Domain Summary
 
@@ -11,7 +11,7 @@
 | D2 Ingestion Pipeline | 5 | 5/5 | 5/5 | 7.5 | ✅ 掌握 |
 | D3 Hybrid Search & Retrieval | 5 | 4/5 | 5/5 | 8.0 | 🔶 学习中 |
 | D4 Rerank 机制 | 4 | 3/4 | 4/4 | 8.1 | 🔶 学习中 |
-| D5 MCP Server 协议 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
+| D5 MCP Server 协议 | 4 | 4/4 | 4/4 | 8.5 | ✅ 掌握 |
 | D6 可插拔架构 & 配置系统 | 5 | 0/5 | 0/5 | - | ⬜ 未学习 |
 | D7 多模态处理 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
 | D8 可观测性 & 评估体系 | 5 | 0/5 | 0/5 | - | ⬜ 未学习 |
@@ -63,10 +63,10 @@
 
 | ID | 知识点 | 已学 | 最高分 | 最近分 | 状态 |
 |----|--------|------|--------|--------|------|
-| D5.1 | MCP 协议概述 | 0 | - | - | ⬜ 未学习 |
-| D5.2 | Tool 注册机制 | 0 | - | - | ⬜ 未学习 |
-| D5.3 | ProtocolHandler | 0 | - | - | ⬜ 未学习 |
-| D5.4 | Server 生命周期 | 0 | - | - | ⬜ 未学习 |
+| D5.1 | MCP 协议概述 | 1 | 8.5 | 8.5 | ✅ 掌握 |
+| D5.2 | Tool 注册机制 | 1 | 8.5 | 8.5 | ✅ 掌握 |
+| D5.3 | ProtocolHandler | 1 | 8.5 | 8.5 | ✅ 掌握 |
+| D5.4 | Server 生命周期 | 1 | 8.5 | 8.5 | ✅ 掌握 |
 
 ### D6 可插拔架构 & 配置系统
 
@@ -134,3 +134,7 @@
 | 13 | 2026-03-23 | D4.2 | CrossEncoder Reranker | Cross-Encoder打分原理与rerank()实现步骤 | 8.5 | 1 | _prepare_pairs双key兼容、_attach_scores_and_sort副本设计、numpy tolist转换 |
 | 14 | 2026-03-23 | D4.3 | LLM Reranker | LLM vs CrossEncoder本质区别与LLM输出不确定性处理 | 8.5 | 1 | prompt 0-3评分标尺设计、reasoning宽松校验、双注入通道、单候选短路 |
 | 15 | 2026-03-23 | D4.4 | Rerank Pipeline 集成 | CoreReranker与libs层关系、双阶段fallback机制 | 9 | 1 | rerank()三个early return、original_score调试价值、trace.record_stage字段、create_core_reranker |
+| 16 | 2026-03-24 | D5.1 | MCP 协议概述 | MCP会话交互流程与stdio协议约束 | 8.5 | 1 | execute_tool返回类型归一化、register_tool重名校验、_protocol_handler回溯通道 |
+| 17 | 2026-03-24 | D5.2 | Tool 注册机制 | 三工具结构模式与handler构造差异 | 8.5 | 1 | Config dataclass未提及、模块级函数vs闭包差异未展开、_preload_heavy_imports配合to_thread未关联、代码行号引用偏少 |
+| 18 | 2026-03-24 | D5.3 | ProtocolHandler | 四层路由链路与execute_tool异常处理 | 8.5 | 1 | JSONRPCErrorCodes定义但未使用、日志级别递进、**kwargs展开即参数契约、list类型支持多模态 |
+| 19 | 2026-03-24 | D5.4 | Server 生命周期 | 五步启动顺序与shutdown路径 | 8.5 | 1 | create_initialization_options未提及、shutdown日志位置观测盲点、sys.exit退出码传播、asyncio.run完整清理职责 |
