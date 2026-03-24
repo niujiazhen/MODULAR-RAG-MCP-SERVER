@@ -1,7 +1,7 @@
 # 📚 Project Learning Progress
 
-> Last updated: 2026-03-22
-> 总进度: 9/45 知识点已掌握 (11/45 已学习)
+> Last updated: 2026-03-23
+> 总进度: 12/45 知识点已掌握 (15/45 已学习)
 
 ## Domain Summary
 
@@ -10,7 +10,7 @@
 | D1 RAG Pipeline 整体架构 | 5 | 0/5 | 1/5 | 1.0 | 🔴 薄弱 |
 | D2 Ingestion Pipeline | 5 | 5/5 | 5/5 | 7.5 | ✅ 掌握 |
 | D3 Hybrid Search & Retrieval | 5 | 4/5 | 5/5 | 8.0 | 🔶 学习中 |
-| D4 Rerank 机制 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
+| D4 Rerank 机制 | 4 | 3/4 | 4/4 | 8.1 | 🔶 学习中 |
 | D5 MCP Server 协议 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
 | D6 可插拔架构 & 配置系统 | 5 | 0/5 | 0/5 | - | ⬜ 未学习 |
 | D7 多模态处理 | 4 | 0/4 | 0/4 | - | ⬜ 未学习 |
@@ -54,10 +54,10 @@
 
 | ID | 知识点 | 已学 | 最高分 | 最近分 | 状态 |
 |----|--------|------|--------|--------|------|
-| D4.1 | Reranker 抽象与工厂模式 | 0 | - | - | ⬜ 未学习 |
-| D4.2 | CrossEncoder Reranker | 0 | - | - | ⬜ 未学习 |
-| D4.3 | LLM Reranker | 0 | - | - | ⬜ 未学习 |
-| D4.4 | Rerank Pipeline 集成 | 0 | - | - | ⬜ 未学习 |
+| D4.1 | Reranker 抽象与工厂模式 | 1 | 6.5 | 6.5 | 🔶 学习中 |
+| D4.2 | CrossEncoder Reranker | 1 | 8.5 | 8.5 | ✅ 掌握 |
+| D4.3 | LLM Reranker | 1 | 8.5 | 8.5 | ✅ 掌握 |
+| D4.4 | Rerank Pipeline 集成 | 1 | 9 | 9 | ✅ 掌握 |
 
 ### D5 MCP Server 协议
 
@@ -130,3 +130,7 @@
 | 9 | 2026-03-22 | D3.3 | Hybrid Search 融合 | RRF算法与Graceful Degradation机制 | 8.5 | 1 | RRF公式泛化形式、score-agnostic分布差异深层含义、HybridSearchResult调试对象、_interleave_results兜底 |
 | 10 | 2026-03-22 | D3.4 | QueryProcessor | 查询预处理与过滤语法传递机制 | 8.5 | 1 | 分词不一致具体后果举例、post-fusion过滤补偿机制、双语停用词合并设计 |
 | 11 | 2026-03-22 | D3.5 | Response 构建 | 三组件协作与多模态输出 | 9 | 1 | MCPToolResponse双输出方法、resolve_image_path三级路径解析、MIME类型双检测、error resilience设计 |
+| 12 | 2026-03-23 | D4.1 | Reranker 抽象与工厂模式 | Lazy Import设计与工厂决策流程 | 6.5 | 1 | lazy import两个都执行的时机偏差、register_provider注册入口位置、validate模板方法未提及 |
+| 13 | 2026-03-23 | D4.2 | CrossEncoder Reranker | Cross-Encoder打分原理与rerank()实现步骤 | 8.5 | 1 | _prepare_pairs双key兼容、_attach_scores_and_sort副本设计、numpy tolist转换 |
+| 14 | 2026-03-23 | D4.3 | LLM Reranker | LLM vs CrossEncoder本质区别与LLM输出不确定性处理 | 8.5 | 1 | prompt 0-3评分标尺设计、reasoning宽松校验、双注入通道、单候选短路 |
+| 15 | 2026-03-23 | D4.4 | Rerank Pipeline 集成 | CoreReranker与libs层关系、双阶段fallback机制 | 9 | 1 | rerank()三个early return、original_score调试价值、trace.record_stage字段、create_core_reranker |
